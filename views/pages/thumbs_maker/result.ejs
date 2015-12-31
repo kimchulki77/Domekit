@@ -1,0 +1,28 @@
+<% include header.ejs %>
+<div class="panel panel-danger">
+    <div class="panel-body">
+        <% if(typeof aDestPath == 'object'){ %>
+        <% for(var i = 0 ; i < aDestPath.length ; i++){ %>
+        <div class="wrap-image wrap-image-<%= i %>">
+            <div class="product-img"><img src="<%= aDestPath[i] %>"></div>
+
+            <div class="company-logo">
+                도매키트
+            </div>
+
+            <div class="arduino-logo">
+                <img
+                        src="img/arduino_logo.png">
+            </div>
+
+            <div class="title"><%= title %></div>
+        </div>
+        <% } %>
+        <% } %>
+        <a id="btnSaveImage"
+           class="btn btn-primary btn-lg">저장하기</a>
+        <img id="resultImg">
+    </div>
+</div>
+
+<% include footer.ejs %>

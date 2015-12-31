@@ -1,0 +1,21 @@
+<% include header.ejs %>
+<div class="panel panel-danger">
+    <div class="panel-body">
+        <form id="form"
+              action="/domekit/thumbs_maker"
+              method="post"
+              enctype="multipart/form-data">
+            <input type="file"
+                   name="pict"
+                   multiple="multiple">
+            <input type="text"
+                   name="title"
+                   value="MPU 6050 3축 자이로센서">
+            <input type="submit"
+                   value="제출">
+        </form>
+
+    </div>
+</div>
+
+<% include footer.ejs %>

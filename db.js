@@ -3,11 +3,11 @@
  */
 var mysql = require('mysql')
     , dbConnection = mysql.createConnection({
-    host: global.config.dbHost,
-    port: global.config.dbPort,
-    user: global.config.dbUserName,
-    password: global.config.dbUserPw,
-    database: global.config.dbName,
+    host: global.config.DB_HOST,
+    port: global.config.DB_PORT,
+    user: global.config.DB_USER_NAME,
+    password: global.config.DB_USER_PW,
+    database: global.config.DB_NAME,
     connectionLimit: 20,
     waitForConnections: false
 });

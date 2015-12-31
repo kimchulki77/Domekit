@@ -1,5 +1,7 @@
 var UserController = require('./controllers/user_controller')
-    , GoodsController = require('./controllers/goodsController');
+    , GoodsController = require('./controllers/goodsController')
+    , GoodsLogController = require('./controllers/goodsLogController')
+    , ThumbsMakerController = require('./controllers/thumbsMakerController');
 
 var fs = require('fs');
 var http = require('http');
@@ -32,10 +34,15 @@ exports.route = function (app, passport) {
         //});
     });
 
+
     app.get('/', GoodsController.getProductList);
+    app.get('/domekit', GoodsController.getProductList);
+    app.get('/domekit/thumbs_maker', ThumbsMakerController.index);
+    app.post('/domekit/thumbs_maker', ThumbsMakerController.uploadImage);
+    app.post('/domekit/saveImage', ThumbsMakerController.saveImage);
+    app.post('/domekit/detail/log', GoodsLogController.logClickGoods);
 
     //region 로그인
-
     app.get('/login', UserController.login);
     app.post('/login',
         passport.authenticate('local', {failureRedirect: '/loginFailure', failureFlash: true}),
@@ -48,48 +55,14 @@ exports.route = function (app, passport) {
 
     app.get('/logout', UserController.logout);
     app.get('/mypage', UserController.mypage);
-
     //endregion
 
-
     //region 회원가입
-
     app.get('/join', UserController.join);
     // 폼내용을 확인 한 후 DB에 회원정보를 저장합니다.
     app.post('/joinEnd', UserController.joinEnd);
-
     //endregion
 
-    app.get('/testSession', function (req, res) {
-        //console.log('=======================');
-        //global.data = {user: 'data'};
-        //console.log(global.data);
-        //console.log('=======================');
-        res.send(global.data);
-        //try {
-        //    console.log(req.session.passport.user.userno);
-        //} catch (e) {
-        //    console.log('catch!!!');
-        //    console.log(e);
-        //}
-        res.end();
-    });
-
-    app.get('/testSession2', function (req, res) {
-        console.log('=======================');
-        console.log(global.data);
-        console.log('=======================');
-        res.send(global.data);
-        //try {
-        //    console.log(req.session.passport.user.userno);
-        //} catch (e) {
-        //    console.log('catch!!!');
-        //    console.log(e);
-        //}
-        res.end();
-    });
-
-    app.get('/domekit', GoodsController.getProductList);
 
     app.get('*', function (req, res) {
         res.render('pages/404');

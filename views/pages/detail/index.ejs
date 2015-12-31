@@ -1,4 +1,4 @@
-<% include ../header.ejs %>
+<% include header.ejs %>
 <div>
     <div class="">
         <div class="detail-description">
@@ -6,7 +6,8 @@
         </div>
         <% for(var i = 0 ; i < goods.length ; i++){ %>
         <a class="wrap-image wrap-image-<%= i %>"
-           href="<%= goods[i].url %>"
+           href="javascript:"
+           onclick="goURL('<%= goods[i].url%>','<%= goods[i].src%>','<%= goods[i].name%>');"
            target="_blank">
             <img src="<%= goods[i].src %>">
 
@@ -29,4 +30,4 @@
            target="_blank">도매키트 상품 더보기</a>
     </div>
 </div>
-<% include ../footer.ejs %>
+<% include footer.ejs %>

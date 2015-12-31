@@ -56,10 +56,3 @@ requirejs.config({
     }
 });
 
-require([
-    'App'
-    , 'routers/MobileRouter'
-], function (App, MobileRouter) {
-    //new MobileRouter;
-
-});

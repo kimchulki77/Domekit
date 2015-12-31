@@ -1,15 +1,15 @@
 {
-  "debug": true,
-  "port": 8080,
-  "email": "kimchulki77@naver.com",
-  "site_name": "HD-환경제어시스템",
-  "site_desc": "최상의 재배를 도와주는 프로그램입니다.",
-  "session_secret": "scott todo session secret",
-  "mongoDbUrl": "mongodb://127.0.0.1:27017/test1",
-  "dbPort": 3306,
-  "dbHost": "localhost",
-  "dbName": "HDPlant_irrigation",
-  "dbUserName": "root",
-  "dbUserPw": "",
-  "dbConnection": ""
+  "DEBUG": true,
+  "PORT": 8080,
+  "EMAIL": "kimchulki77@naver.com",
+  "SITE_NAME": "도매키트",
+  "SITE_DESC": "도매키트 프로그램입니다.",
+  "SESSION_SECRET": "scott todo session secret",
+  "MONGODB_URL": "mongodb://127.0.0.1:27017/test1",
+  "DB_PORT": 3306,
+  "DB_HOST": "localhost",
+  "DB_NAME": "Domekit",
+  "DB_USER_NAME": "root",
+  "DB_USER_PW": "",
+  "DB_CONNECTION": ""
 }

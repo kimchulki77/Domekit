@@ -56,7 +56,7 @@ app.set('view engine', 'ejs');
 
 routes.route(app, passport);
 
-var httpServer = server.listen(global.config.port, function () {
+var httpServer = server.listen(global.config.PORT, function () {
     console.log('Express server listening on port ' + server.address().port);
 });
 

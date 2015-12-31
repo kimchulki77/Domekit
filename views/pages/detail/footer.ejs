@@ -1,0 +1,22 @@
+<script>
+    $(function () {
+        function goURL(sURL, sSrc, sName) {
+            var oData = {
+                url: sURL
+                , src: sSrc
+                , name: sName
+            };
+            $.ajax({
+                url: '/domekit/detail/log'
+                , data: oData
+                , type: 'post'
+                , success: function (data) {
+                }
+            });
+            window.open(sURL, '_blank');
+        }
+
+        window.goURL = goURL;
+    });
+
+</script>
