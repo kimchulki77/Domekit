@@ -1,14 +1,13 @@
 /**
  * Created by mac on 15. 9. 8..
  */
-var mysql = require('mysql');
-
-var dbConnection = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: '',
-    database: 'HDPlant_irrigation',
+var mysql = require('mysql')
+    , dbConnection = mysql.createConnection({
+    host: global.config.dbHost,
+    port: global.config.dbPort,
+    user: global.config.dbUserName,
+    password: global.config.dbUserPw,
+    database: global.config.dbName,
     connectionLimit: 20,
     waitForConnections: false
 });

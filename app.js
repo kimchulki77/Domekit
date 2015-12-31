@@ -1,4 +1,6 @@
-﻿var express = require('express')
+﻿global.config = require('./config');
+
+var express = require('express')
     , routes = require('./routes')
     , http = require('http')
     , path = require('path')
@@ -7,7 +9,6 @@
     , server = http.createServer(app)
     , ejs = require("ejs")
     , io
-//, url = require("url")
     , bodyParser = require("body-parser")
     , cookieParser = require('cookie-parser')
     , fs = require("fs")
@@ -17,7 +18,6 @@
 
 var passport = require('passport');
 
-global.config = require('./config');
 
 db.connect();
 

@@ -4,7 +4,6 @@
 
 var User = require('../../models/user').User
     , _ = require('underscore-node')
-    , pass = require('../../pass')
     , util = require('util');
 
 //region PASSPORT 인증과 관련한 함수입니다.
