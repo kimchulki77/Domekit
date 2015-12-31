@@ -16,7 +16,7 @@ exports.route = function (app, passport) {
         , UserController.authenticate
     ));
 
-//    hlllllldsgsdggg
+//    hlllllldsgsdgggddd
 
 // 인증 후, 사용자 정보를 Session에 저장함
     passport.serializeUser(function (user, done) {
