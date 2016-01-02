@@ -2,14 +2,12 @@
  * Created by mac on 15. 10. 28..
  */
 
-var User = require('../../models/user').User
+var user = new require('../../models/user').User
     , _ = require('underscore-node')
     , util = require('util');
 
 //region PASSPORT 인증과 관련한 함수입니다.
 exports.authenticate = function (req, userId, userPw, done) {
-    var user = new User();
-
     user.getUserInfoById(userId, function (dbError, dbResult) {
         if (dbError) {
             console.log('err' + dbError);
@@ -103,7 +101,7 @@ exports.logout = function (req, res) {
 };
 
 function mypage(req, res) {
-    var user = new User()
+    var user = new user()
         , data = {};
 
     getUserno(req, res, function (userno) {
@@ -122,8 +120,7 @@ exports.join = function (req, res) {
 };
 
 exports.joinEnd = function (req, res) {
-    var user = new User()
-        , oUserInfo = req.body
+    var oUserInfo = req.body
         , oData;
     oUserInfo.user_pw = oUserInfo.user_pw;
 

@@ -40,7 +40,9 @@ exports.route = function (app, passport) {
     app.get('/domekit/thumbs_maker', ThumbsMakerController.index);
     app.post('/domekit/thumbs_maker', ThumbsMakerController.uploadImage);
     app.post('/domekit/saveImage', ThumbsMakerController.saveImage);
-    app.post('/domekit/detail/log', GoodsLogController.logClickGoods);
+    app.post('/domekit/detail/log', GoodsLogController.logClickedGoods);
+
+    app.get('/domekit/getLogList', GoodsLogController.getGoodsLogList);
 
     //region 로그인
     app.get('/login', UserController.login);

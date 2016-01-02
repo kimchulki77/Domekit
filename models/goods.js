@@ -2,15 +2,15 @@
  * Created by mac on 2015. 12. 31..
  */
 
-var dbConnection = require('../db').getDBConection()
-    , QueryMaker = require('../utils/query').QueryMaker
+var dbConnection = require('../db').getInstance().getDBConnection()
+    , queryMaker = require('../utils/QueryMaker').getInstance()
     , util = require('util');
 
 
 exports.Goods = Goods;
 function Goods() {
-    var tableName = 'dmk_goods';
-    this.queryMaker = new QueryMaker(tableName);
+    var sTableName = 'dmk_goods';
+    queryMaker.setTableName(sTableName);
 }
 Goods.prototype = {
     getGridGoods: function () {

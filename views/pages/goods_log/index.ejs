@@ -1,0 +1,41 @@
+hello!
+<table>
+    <thead>
+    <tr>
+        <th>
+            id
+        </th>
+        <th>
+            이미지
+        </th>
+        <th>
+            이름
+        </th>
+        <th>
+            IP
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% if(typeof dbResult == 'object'){ %>
+    <% for(var i = 0; i < dbResult.length; i++){ %>
+    <tr>
+        <td>
+            <%= dbResult[i]._id %>
+        </td>
+        <td>
+            <img src="<%= dbResult[i].src %>">
+
+        </td>
+        <td>
+            <a target="_blank"
+               href="<%= dbResult[i].url %>"><%= dbResult[i].name %></a>
+        </td>
+        <td>
+            <%= dbResult[i].ip %>
+        </td>
+    </tr>
+    <% } %>
+    <% } %>
+    </tbody>
+</table>

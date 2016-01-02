@@ -11,9 +11,9 @@ function getProductList(req, res) {
     res.render('pages/detail/index', goods.getGridGoods());
 }
 
-exports.logClickGoods = logClickGoods;
+exports.logClickedGoods = logClickGoods;
 function logClickGoods(req, res) {
     var goods = new Goods();
 
-    goods.logClickGoods(req);
+    goods.logClickedGoods(req);
 }

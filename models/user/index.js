@@ -2,27 +2,26 @@
  * Created by mac on 15. 11. 13..
  */
 
-var dbConnection = require('../../db').getDBConection()
-    , QueryMaker = require('../../utils/query').QueryMaker
+var dbConnection = require('../../db').getInstance().getDBConnection()
+    , queryMaker = require('../../utils/QueryMaker').getInstance()
     , util = require('util');
 
 
 //==============================
 function User() {
-    var tableName = 'hd_user';
-    this.queryMaker = new QueryMaker(tableName);
+    var sTableName = 'hd_user';
+    queryMaker.setTableName(sTableName);
 }
 User.prototype = {
     /*
      * 회원정보를 받아옵니다.
      * */
     getUserInfo: function (userno, fn) {
-        var that = this;
 
         this.isExistUser(userno, function (isExist) {
             if (isExist == true) {
                 dbConnection.query(
-                    that.queryMaker.select({
+                    queryMaker.select({
                         COLUMN: 'userno, user_id, user_pw',
                         WHERE: util.format('userno="%s"', userno)
                     }),
@@ -36,13 +35,12 @@ User.prototype = {
      * 회원정보를 받아옵니다.
      * */
     getUserInfoById: function (userId, fn) {
-        var that = this;
 
         this.isExistUserById(userId, function (isExist) {
             if (isExist == true) {
                 console.log('user exist');
                 dbConnection.query(
-                    that.queryMaker.select({
+                    queryMaker.select({
                         COLUMN: 'userno, user_id, user_pw',
                         WHERE: util.format('user_id="%s"', userId)
                     }),
@@ -57,7 +55,7 @@ User.prototype = {
      */
     isExistUser: function (userno, fn) {
         dbConnection.query(
-            this.queryMaker.select({
+            queryMaker.select({
                 COLUMN: 'userno',
                 WHERE: util.format('userno="%s"', userno)
             }),
@@ -77,7 +75,7 @@ User.prototype = {
      */
     isExistUserById: function (userId, fn) {
         dbConnection.query(
-            this.queryMaker.select({
+            queryMaker.select({
                 COLUMN: 'userno',
                 WHERE: util.format('user_id="%s"', userId)
             }),
@@ -96,15 +94,13 @@ User.prototype = {
      * 회원을 생성합니다.
      * */
     createUser: function (oUser, fn) {
-        var that = this;
-
         this.isExistUserById(oUser.user_id, function (isExist) {
             if (isExist == true) {
                 console.log('아이디가 이미 존재하여 회원가입할 수 없습니다.');
             } else {
                 console.log('아이디가 존재하지 않으므로 회원가입할 수 있습니다.');
                 dbConnection.query(
-                    that.queryMaker.insert({
+                    queryMaker.insert({
                         COLUMN: util.format('user_id="%s", user_pw="%s"', oUser.user_id, oUser.user_pw)
                     }),
                     fn

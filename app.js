@@ -12,7 +12,7 @@ var express = require('express')
     , bodyParser = require("body-parser")
     , cookieParser = require('cookie-parser')
     , fs = require("fs")
-    , db = require('./db')
+    , db = require('./db').getInstance()
 //, config = require('./config')
     , flash = require('connect-flash'); // session 관련해서 사용됨. 로그인 실패시 session등 클리어하는 기능으로 보임.
 
